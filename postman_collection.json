@@ -1,0 +1,91 @@
+{
+  "info": {
+    "name": "ADSO Guía 7 - Express + MongoDB",
+    "description": "Colección de pruebas de los 10 endpoints. Variables: baseUrl y productoId.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:5000" },
+    { "key": "productoId", "value": "PEGAR_AQUI_EL_ID_DEL_PRODUCTO" }
+  ],
+  "item": [
+    {
+      "name": "1. POST Crear producto",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"nombre\": \"Teclado Mecánico RGB\",\n  \"precio\": 250000,\n  \"categoria\": \"Periféricos\",\n  \"stock\": 15\n}" },
+        "url": { "raw": "{{baseUrl}}/api/productos", "host": ["{{baseUrl}}"], "path": ["api", "productos"] }
+      }
+    },
+    {
+      "name": "2. GET Listar productos",
+      "request": {
+        "method": "GET",
+        "url": { "raw": "{{baseUrl}}/api/productos", "host": ["{{baseUrl}}"], "path": ["api", "productos"] }
+      }
+    },
+    {
+      "name": "3. GET Producto por ID",
+      "request": {
+        "method": "GET",
+        "url": { "raw": "{{baseUrl}}/api/productos/{{productoId}}", "host": ["{{baseUrl}}"], "path": ["api", "productos", "{{productoId}}"] }
+      }
+    },
+    {
+      "name": "4. PUT Actualizar producto",
+      "request": {
+        "method": "PUT",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"nombre\": \"Teclado Mecánico Pro RGB\",\n  \"precio\": 280000,\n  \"stock\": 20\n}" },
+        "url": { "raw": "{{baseUrl}}/api/productos/{{productoId}}", "host": ["{{baseUrl}}"], "path": ["api", "productos", "{{productoId}}"] }
+      }
+    },
+    {
+      "name": "5. DELETE Eliminar producto",
+      "request": {
+        "method": "DELETE",
+        "url": { "raw": "{{baseUrl}}/api/productos/{{productoId}}", "host": ["{{baseUrl}}"], "path": ["api", "productos", "{{productoId}}"] }
+      }
+    },
+    {
+      "name": "6. GET Productos por categoría",
+      "request": {
+        "method": "GET",
+        "url": { "raw": "{{baseUrl}}/api/productos/categoria/Periféricos", "host": ["{{baseUrl}}"], "path": ["api", "productos", "categoria", "Periféricos"] }
+      }
+    },
+    {
+      "name": "7. POST Registro de usuario",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"nombre\": \"Aprendiz SENA\",\n  \"email\": \"aprendiz@sena.edu.co\",\n  \"password\": \"SecretPassword123\"\n}" },
+        "url": { "raw": "{{baseUrl}}/api/usuarios/registro", "host": ["{{baseUrl}}"], "path": ["api", "usuarios", "registro"] }
+      }
+    },
+    {
+      "name": "8. POST Login",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"email\": \"aprendiz@sena.edu.co\",\n  \"password\": \"SecretPassword123\"\n}" },
+        "url": { "raw": "{{baseUrl}}/api/usuarios/login", "host": ["{{baseUrl}}"], "path": ["api", "usuarios", "login"] }
+      }
+    },
+    {
+      "name": "9. GET Listar usuarios",
+      "request": {
+        "method": "GET",
+        "url": { "raw": "{{baseUrl}}/api/usuarios", "host": ["{{baseUrl}}"], "path": ["api", "usuarios"] }
+      }
+    },
+    {
+      "name": "10. GET Estadísticas",
+      "request": {
+        "method": "GET",
+        "url": { "raw": "{{baseUrl}}/api/reportes/estadisticas", "host": ["{{baseUrl}}"], "path": ["api", "reportes", "estadisticas"] }
+      }
+    }
+  ]
+}
